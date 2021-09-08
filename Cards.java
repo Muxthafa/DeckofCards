@@ -1,5 +1,10 @@
 package com.bridgelabz;
 
+/**
+ * Card class having suit and rank data
+ * @author Mohammad Musthafa
+ *
+ */
 public class Cards {
 	
 	private String rank;

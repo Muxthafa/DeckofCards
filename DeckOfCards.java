@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Deck of card game
@@ -39,8 +40,21 @@ public class DeckOfCards {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		int numberOfPlayers;
+        Scanner sc=new Scanner(System.in);
+        
 		DeckOfCards d = new DeckOfCards();		// object creation
 		d.uniqueDeck();							// function call
+		
+		System.out.println("Enter the number of players");
+		numberOfPlayers=sc.nextInt();			// number of player added from console
+		if (numberOfPlayers < 2 || numberOfPlayers > 4) {
+			System.out.println("Enter the value between 2 and 4");
+			numberOfPlayers = sc.nextInt();
+		}else {
+			Player player=new Player(numberOfPlayers);
+		}
+		
 	}
 
 }
