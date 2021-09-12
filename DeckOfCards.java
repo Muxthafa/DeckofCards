@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -36,6 +37,12 @@ public class DeckOfCards {
 			rank=ranks[i%13];
 			cards.add(new Cards(suit,rank));
 		}
+		System.out.println(cards);
+	}
+	
+	void shuffleCards() {
+		Collections.shuffle(cards);
+		System.out.println(cards);
 	}
 	
 	public static void main(String[] args) {
@@ -45,6 +52,7 @@ public class DeckOfCards {
         
 		DeckOfCards d = new DeckOfCards();		// object creation
 		d.uniqueDeck();							// function call
+		d.shuffleCards();
 		
 		System.out.println("Enter the number of players");
 		numberOfPlayers=sc.nextInt();			// number of player added from console
