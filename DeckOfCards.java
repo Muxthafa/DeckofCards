@@ -52,7 +52,8 @@ public class DeckOfCards {
 			System.out.println("Enter the value between 2 and 4");
 			numberOfPlayers = sc.nextInt();
 		}else {
-			Player player=new Player(numberOfPlayers);
+			Player player=new Player(numberOfPlayers);	// player object creation
+			player.orderPlayer();						// function call to order player sequence
 		}
 		
 	}
