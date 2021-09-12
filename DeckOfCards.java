@@ -14,7 +14,7 @@ public class DeckOfCards {
 	private final String[] suits={"Spades", "Diamonds", "Clubs", "Hearts"};
 	private final String[] ranks= {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
 	
-	ArrayList<Cards> cards;		// cards array list declaration
+	public static ArrayList<Cards> cards;		// cards array list declaration
 	
 	/**
 	 * constructor displays welcome message
@@ -37,12 +37,13 @@ public class DeckOfCards {
 			rank=ranks[i%13];
 			cards.add(new Cards(suit,rank));
 		}
-		System.out.println(cards);
 	}
 	
+	/**
+	 * @method to shuffle the cards before distributing the cards with the player
+	 */
 	void shuffleCards() {
 		Collections.shuffle(cards);
-		System.out.println(cards);
 	}
 	
 	public static void main(String[] args) {
@@ -62,6 +63,7 @@ public class DeckOfCards {
 		}else {
 			Player player=new Player(numberOfPlayers);	// player object creation
 			player.orderPlayer();						// function call to order player sequence
+			player.distributeCards(cards);
 		}
 		
 	}

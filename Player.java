@@ -11,6 +11,9 @@ import java.util.Random;
 public class Player {
 	Random randomOrder = new Random();
 	int numberOfPlayers;
+	ArrayList<Integer> sequence=new ArrayList<Integer>(numberOfPlayers);
+	
+	ArrayList<TotalCards> players;
 	
 	/**
 	 * constructor to initialize number of players playing the game
@@ -19,14 +22,15 @@ public class Player {
 	Player(int n){
 		System.out.println(n+" players are added to the game!");
 		numberOfPlayers=n;
-		ArrayList<TotalCards> players= new ArrayList<TotalCards>(numberOfPlayers);
+		players= new ArrayList<TotalCards>(numberOfPlayers);
+		for(int i=0;i<n;i++)
+            players.add(i,new TotalCards());
 	}
 	
 	/**
 	 * @method to sequence the players order
 	 */
 	public void orderPlayer() {
-		ArrayList<Integer> sequence=new ArrayList<Integer>(numberOfPlayers);
 		Integer rand;
 		int count=0;
 		while(numberOfPlayers > count) {
@@ -39,4 +43,27 @@ public class Player {
 			}	
 		}
 	}
+	
+	/**
+	 * @method distribute cards according to player sequence
+	 * @param cards
+	 */
+	public void distributeCards(ArrayList<Cards> cards) {
+		int countCards=0;
+		
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < numberOfPlayers; j++) {
+				TotalCards eachPlayer = players.get(sequence.get(j));
+				eachPlayer.setCard(cards.get(countCards));		// set each player object with a card
+				countCards++;
+			}
+		}
+//		for(int i=0;i<numberOfPlayers;i++) {
+//			TotalCards eachPlayer=players.get(sequence.get(i));
+//			System.out.println("Player "+(i+1)+" has");
+//			System.out.println(eachPlayer.displayCards());
+//		}
+	}
+	
+	
 }
