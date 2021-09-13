@@ -2,6 +2,7 @@ package com.bridgelabz;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,8 +12,8 @@ import java.util.Scanner;
  */
 public class DeckOfCards {
 	
-	private final String[] suits={"Spades", "Diamonds", "Clubs", "Hearts"};
-	private final String[] ranks= {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
+	private static final String[] suits={"Spades", "Diamonds", "Clubs", "Hearts"};
+	private static final String[] ranks= {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
 	
 	public static ArrayList<Cards> cards;		// cards array list declaration
 	
@@ -46,6 +47,8 @@ public class DeckOfCards {
 		Collections.shuffle(cards);
 	}
 	
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int numberOfPlayers;
@@ -65,6 +68,7 @@ public class DeckOfCards {
 			player.orderPlayer();						// function call to order player sequence
 			player.distributeCards(cards);
 			player.suitsForEachPlayer();
+			player.sortCards();
 		}
 		
 	}

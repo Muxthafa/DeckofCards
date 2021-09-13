@@ -1,11 +1,12 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
  * player class 
- * @author Mohammad Musthafa_ym
+ * @author Mohammad Musthafa
  *
  */
 public class Player {
@@ -59,12 +60,12 @@ public class Player {
 			}
 		}
 		
-		//for loop to display cards of each player
-//		for(int i=0;i<numberOfPlayers;i++) {
-//			TotalCards eachPlayer=players.get(sequence.get(i));
-//			System.out.println("Player "+(i+1)+" has");
-//			System.out.println(eachPlayer.displayCards());
-//		}
+//		for loop to display cards of each player
+		for(int i=0;i<numberOfPlayers;i++) {
+			TotalCards eachPlayer=players.get(sequence.get(i));
+			System.out.println("Player "+(i+1)+" has");
+			System.out.println(eachPlayer.getCards());
+		}
 	}
 	
 	/**
@@ -78,5 +79,49 @@ public class Player {
 		}
 	}
 	
+	/**
+	 * @method to order the cards in sequence of
+	 * lower rank to higher rank
+	 */
+	public void sortCards() {
+		for (TotalCards player : players) {
+			// hand of the player
+			ArrayList<Cards> playerIterate = player.getCards();
+			// to sort the cards
+			for (int i = 0; i < playerIterate.size(); i++) {
+				for (int j = 0; j < playerIterate.size() - i - 1; j++) {
+					// get the card
+					Cards rankOfPlayer1 = playerIterate.get(j);
+					Cards rankOfPlayer2 = playerIterate.get(j + 1);
+					// to compare which card has highest rank
+					if (compare(rankOfPlayer1, rankOfPlayer2) == rankOfPlayer2) {
+						// replace the cards
+						playerIterate.set(j, rankOfPlayer2);
+						playerIterate.set(j + 1, rankOfPlayer1);
+					}
+				}
+			}
+		}
+		for(int i=0;i<numberOfPlayers;i++) {
+			TotalCards eachPlayer=players.get(sequence.get(i));
+			System.out.println("Player "+(i+1)+" has");
+			System.out.println(eachPlayer.getCards());
+		}
+	}
+	
+	/**
+	 * @method to return lower rank card
+	 * @param rankOfPlayer1
+	 * @param rankOfPlayer2
+	 * @return
+	 */
+	public Cards compare(Cards rankOfPlayer1, Cards rankOfPlayer2) {
+		final List<String> rankings = new ArrayList<String>(
+				List.of("2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"));
+		if (rankings.indexOf(rankOfPlayer1.getRank()) < rankings.indexOf(rankOfPlayer2.getRank()))
+			return rankOfPlayer1;
+		else
+			return rankOfPlayer2;
+	}
 	
 }

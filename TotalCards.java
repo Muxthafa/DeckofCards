@@ -22,7 +22,7 @@ public class TotalCards {
         this.cardsForEachPlayer.add(cardPerPlayer);
     }
     
-    public ArrayList<Cards> displayCards() {
+    public ArrayList<Cards> getCards() {
     	return this.cardsForEachPlayer;
     }
     
@@ -40,7 +40,6 @@ public class TotalCards {
     		}else {
     			suitDisplayForEachPlayer.put(onlySuits, 1);
     		}
-    		
     	}
     	return this.suitDisplayForEachPlayer;
     }
