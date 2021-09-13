@@ -64,6 +64,7 @@ public class DeckOfCards {
 			Player player=new Player(numberOfPlayers);	// player object creation
 			player.orderPlayer();						// function call to order player sequence
 			player.distributeCards(cards);
+			player.suitsForEachPlayer();
 		}
 		
 	}

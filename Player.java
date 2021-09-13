@@ -58,11 +58,24 @@ public class Player {
 				countCards++;
 			}
 		}
+		
+		//for loop to display cards of each player
 //		for(int i=0;i<numberOfPlayers;i++) {
 //			TotalCards eachPlayer=players.get(sequence.get(i));
 //			System.out.println("Player "+(i+1)+" has");
 //			System.out.println(eachPlayer.displayCards());
 //		}
+	}
+	
+	/**
+	 * @method to output count of different type of cards received by a player
+	 */
+	public void suitsForEachPlayer() {
+		for(int i=0;i<numberOfPlayers;i++) {
+			TotalCards eachPlayer=players.get(sequence.get(i));
+			System.out.println("Player "+(i+1)+" has"+" recieved");
+			System.out.println(eachPlayer.suitsCardsForEach());
+		}
 	}
 	
 	
